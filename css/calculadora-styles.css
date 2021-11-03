@@ -1,5 +1,3 @@
-@import url(//db.onlinewebfonts.com/c/3dd6e9888191722420f62dd54664bc94?family=Myriad+Pro);
-
 * {
     margin: 0;
     padding: 0;
@@ -43,7 +41,6 @@
     line-height: 22px;
     text-align: left;
     color: #fff;
-    font-family: 'Myriad Pro';
     font-size: 14px;
     font-weight: 500;
     padding: 0 8px;
@@ -62,12 +59,86 @@
 .calculadora__header .calculadora__type {
     width: 100%;
     height: 25%;
+    z-index: 2;
+}
+
+
+.types {
+    height: 1200%;
+    width: 0;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.types.active {
+    height: 1480%;
+    width: 100%;
+    position: relative;
+    background-color: rgb(207, 207, 207);
+    z-index: 1000;
+    display: flex;
+    opacity: 1;
+    background-color: rgb(44, 44, 44);
+}
+
+.types .list__types {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    padding-top: 45px;
+    width: 100%;
+}
+
+.types .list__types li {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    display: flex;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.types .list__types li:hover {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: rgb(66, 66, 66);
+}
+
+.types .list__types li .type-title {
+    padding-left: 10px;
+}
+
+.calculadora__header .calculadora__type .calculadora__desc {
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    position: relative;
+    bottom: 420px;
+    transition: all 0.5s;
 }
 
-.calculadora__header .calculadora__type button {
+.calculadora__header .calculadora__type .calculadora__desc.active {
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    bottom: 519px;
+}
+
+.calculadora__header .calculadora__type .calculadora__desc button {
     width: 34px;
     height: 34px;
     border: none;
@@ -75,15 +146,15 @@
     font-size: 15px;
     background-color: rgb(44, 44, 44);
     opacity: 0.94;
-    margin: 2px;
+    margin-left: 2px;
     color: #fff;
 }
 
-.calculadora__header .calculadora__type button:hover {
+.calculadora__header .calculadora__type .calculadora__desc button:hover {
     background-color: rgb(66, 66, 66);
 }
 
-.calculadora__header .calculadora__type h3 {
+.calculadora__header .calculadora__type .calculadora__desc .type__title {
     width: 120px;
     height: 32px;
     padding-left: 15px;
@@ -91,8 +162,20 @@
     font-size: 23px;
     font-weight: 600;
     color: #fff;
-    font-family: 'Myriad Pro';
     margin: 0;
+    transition: all 0.5s;
+}
+
+.calculadora__header .calculadora__type .calculadora__desc .type__title.active {
+    width: 120px;
+    height: 32px;
+    padding-left: 15px;
+    line-height: 30px;
+    font-size: 23px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+    opacity: 0;
 }
 
 .calculadora__header .calculadora__input {
@@ -168,14 +251,12 @@
     color: #fff;
     font-size: 19px;
     font-weight: bold;
-    font-family: 'Myriad Pro';
 }
 
 .calculadora__body .calculadora__buttons button .esp {
     color: #fff;
     font-size: 19px;
     font-weight: 500;
-    font-family: 'Myriad Pro';
 }
 
 .calculadora__body .calculadora__buttons button .icon-png {
