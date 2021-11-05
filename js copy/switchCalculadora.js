@@ -14,6 +14,13 @@ btnSuma.addEventListener('click', function (e) {
     operacion = "suma";
     bool = true;
     switcher(bool, operacion);
+    if (getPrincipalNumber() == null) {
+        alert('XD');
+    } else {
+        let numeroPrincipal = getPrincipalNumber();
+        setNumbers(numeroPrincipal, operacion);
+    }
+    // Falta la logica de que en caso de ya haber un 3er numero que se quiere sumar, la suma de los dos primeros debe sumarse ya.
 });
 
 btnResta.addEventListener('click', function (e) {

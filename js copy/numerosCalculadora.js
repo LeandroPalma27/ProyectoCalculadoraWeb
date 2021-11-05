@@ -1,10 +1,11 @@
 var btnOne, btnTwo, btnThree, btnFour, btnFive, btnSix, btnSeven, btnEight, btnNine, btnZero;
-var inputPrincipal;
+var inputPrincipal, inputSecundario;
 var btnBorrar, btnCleaner;
 var firstClick = true;
 // var zeroCleaner = false;
 
 inputPrincipal = document.getElementById('inputPrincipal');
+inputSecundario = document.getElementById('inputSecundario');
 btnBorrar = document.getElementById('btnBorrar');
 btnCleaner = document.getElementById('btnCleaner');
 
@@ -35,6 +36,9 @@ btnOne.addEventListener('click', function numeroUno(e) {
     if (firstClick == true) {
         inputPrincipal.value = null;
     }
+    if (getSecondaryInputForNewNumber() == true) {
+        inputPrincipal.value = null;
+    }
     let numero = 1;
     inputPrincipal.value += numero;
     firstClick = false;
@@ -42,6 +46,9 @@ btnOne.addEventListener('click', function numeroUno(e) {
 
 btnTwo.addEventListener('click', function (e) {
     if (firstClick == true) {
+        inputPrincipal.value = null;
+    }
+    if (getSecondaryInputForNewNumber() == true) {
         inputPrincipal.value = null;
     }
     let numero = 2;
@@ -53,6 +60,9 @@ btnThree.addEventListener('click', function (e) {
     if (firstClick == true) {
         inputPrincipal.value = null;
     }
+    if (getSecondaryInputForNewNumber() == true) {
+        inputPrincipal.value = null;
+    }
     let numero = 3;
     inputPrincipal.value += numero;
     firstClick = false;
@@ -60,6 +70,9 @@ btnThree.addEventListener('click', function (e) {
 
 btnFour.addEventListener('click', function (e) {
     if (firstClick == true) {
+        inputPrincipal.value = null;
+    }
+    if (getSecondaryInputForNewNumber() == true) {
         inputPrincipal.value = null;
     }
     let numero = 4;
@@ -71,6 +84,9 @@ btnFive.addEventListener('click', function (e) {
     if (firstClick == true) {
         inputPrincipal.value = null;
     }
+    if (getSecondaryInputForNewNumber() == true) {
+        inputPrincipal.value = null;
+    }
     let numero = 5;
     inputPrincipal.value += numero;
     firstClick = false;
@@ -78,6 +94,9 @@ btnFive.addEventListener('click', function (e) {
 
 btnSix.addEventListener('click', function (e) {
     if (firstClick == true) {
+        inputPrincipal.value = null;
+    }
+    if (getSecondaryInputForNewNumber() == true) {
         inputPrincipal.value = null;
     }
     let numero = 6;
@@ -89,6 +108,9 @@ btnSeven.addEventListener('click', function (e) {
     if (firstClick == true) {
         inputPrincipal.value = null;
     }
+    if (getSecondaryInputForNewNumber() == true) {
+        inputPrincipal.value = null;
+    }
     let numero = 7;
     inputPrincipal.value += numero;
     firstClick = false;
@@ -98,6 +120,9 @@ btnEight.addEventListener('click', function (e) {
     if (firstClick == true) {
         inputPrincipal.value = null;
     }
+    if (getSecondaryInputForNewNumber() == true) {
+        inputPrincipal.value = null;
+    }
     let numero = 8;
     inputPrincipal.value += numero;
     firstClick = false;
@@ -105,6 +130,9 @@ btnEight.addEventListener('click', function (e) {
 
 btnNine.addEventListener('click', function (e) {
     if (firstClick == true) {
+        inputPrincipal.value = null;
+    }
+    if (getSecondaryInputForNewNumber() == true) {
         inputPrincipal.value = null;
     }
     let numero = 9;
@@ -126,6 +154,9 @@ btnZero.addEventListener('click', function (e) {
             if (firstClick == true) {
                 inputPrincipal.value = null;
             }
+            if (getSecondaryInputForNewNumber() == true) {
+                inputPrincipal.value = null;
+            }
             let numero = 0;
             inputPrincipal.value += numero;
             firstClick = false;
@@ -135,6 +166,7 @@ btnZero.addEventListener('click', function (e) {
 
 btnCleaner.addEventListener('click', function (e){
     inputPrincipal.value = 0;
+    inputSecundario.value = null;
     firstClick = true;
 });
 

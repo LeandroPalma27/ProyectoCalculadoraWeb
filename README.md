@@ -2,5 +2,10 @@
 
 Pendiente:
 
-- Revisar logica de las funcionalidades operativas de la calculadora de windows
 - Corregir responsive en horizontal
+
+Nueva funcionalidad:
+
+- Primero, crear rama
+- Luego empezar a desarrollar la nueva funcionalidad 
+- Esta consiste en que cuando la 2da vez que se hace un set de numeros, no se reinicie el inputSecundario con el nuevo valor, sino que se le asigne al contenido de este (creo que los contadores podrian funcionar).
