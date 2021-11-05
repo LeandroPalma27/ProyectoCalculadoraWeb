@@ -13,3 +13,4 @@ Nueva funcionalidad:
 Bug detectado en esta rama:
 
 - Despues de un supuesto nuevo seteo de numeros, la funcionalidad de reiniciar el inputPrincipal al querer modificarlo con los botones de numeros, se pierde totalmente (solo funciona la primera vez).
+- INTENTAR TAMBIEN IMPRIMIR EL CONTADOR CADA QUE SE ACCIONA EL METODO GET.
