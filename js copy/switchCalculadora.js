@@ -13,14 +13,17 @@ btnResultado = document.getElementById('btnResultado');
 btnSuma.addEventListener('click', function (e) {
     operacion = "suma";
     bool = true;
-    switcher(bool, operacion);
     if (getPrincipalNumber() == null) {
         alert('XD');
     } else {
         let numeroPrincipal = getPrincipalNumber();
-        setNumbers(numeroPrincipal, operacion);
+        let seteo = setNumbers(numeroPrincipal, operacion);
+        resetCounter();
+        if (seteo.numeros.length >= 2) {
+            inputSecundario.value = null;
+            setNumbers(numeroPrincipal, operacion);
+        }
     }
-    // Falta la logica de que en caso de ya haber un 3er numero que se quiere sumar, la suma de los dos primeros debe sumarse ya.
 });
 
 btnResta.addEventListener('click', function (e) {
@@ -43,18 +46,28 @@ btnDivision.addEventListener('click', function (e) {
 
 btnResultado.addEventListener('click', function (e) {
     bool = true;
-    switcher(bool, operacion);
+    if (getPrincipalNumber() == null) {
+        alert('XD');
+    } else {
+        let numeroPrincipal = getPrincipalNumber();
+        let seteo = setNumbers(numeroPrincipal, operacion);
+        let tamaño = seteo.numeros.length;
+        if (tamaño > 1) {
+            switcher(bool, seteo.operador, seteo.numeros);
+        }
+    }
+    //switcher(bool, operacion);
 });
 
-function switcher(data, opr) {
+function switcher(data, opr, arrayNumbers) {
     if (data == true) {
         let operacion = opr;
-        // console.log(operacion);
-        // console.log(data);
+        let array = arrayNumbers;
         switch (operacion) {
             case "suma":
-                suma([1, 2, 3, 4, 5]);
-                console.log(suma([1, 2, 3, 4, 5]));
+                let resultado = suma(array);
+                setResultado(resultado);
+                setOperacion(array, operacion);
                 break;
             case "resta":
                 resta([10, 5, -50, 100]);

@@ -22,3 +22,7 @@ function getSecondaryInputForNewNumber() {
     }
 }
 
+function resetCounter() {
+    cont = 0;
+}
+
