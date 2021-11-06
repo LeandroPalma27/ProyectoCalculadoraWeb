@@ -46,13 +46,65 @@ btnSuma.addEventListener('click', function (e) {
 btnResta.addEventListener('click', function (e) {
     operacion = "resta";
     bool = true;
-    switcher(bool, operacion);
+    let obtenerInputSecundario = getSecondaryNumber();
+    if (obtenerInputSecundario == null) {
+        if (getPrincipalNumber() == null) {
+            alert('No hay nada en el input principal');
+        } else {
+            let numeroPrincipal = getPrincipalNumber();
+            let seteo = setNumbers(numeroPrincipal, operacion);
+            resetCounter();
+        }
+    } else {
+        if (obtenerInputSecundario.length == 1) {
+            let numeroPrincipal = getPrincipalNumber();
+            let seteo = setNumbers(numeroPrincipal, operacion);
+            bool2 = true;
+            resetCounter();
+            if (seteo.numeros.length >= 2) {
+                switcher(bool, operacion, seteo.numeros, bool2);
+                bool2 = false;
+            }
+        } else {
+            let inputSecundario = document.getElementById('inputSecundario');
+            inputSecundario.value = null;
+            let numeroPrincipal = getPrincipalNumber();
+            let seteo = setNumbers(numeroPrincipal, operacion);
+            resetCounter();
+        }
+    }
 });
 
 btnMultiplicacion.addEventListener('click', function (e) {
     operacion = "multiplicacion";
     bool = true;
-    switcher(bool, operacion);
+    let obtenerInputSecundario = getSecondaryNumber();
+    if (obtenerInputSecundario == null) {
+        if (getPrincipalNumber() == null) {
+            alert('No hay nada en el input principal');
+        } else {
+            let numeroPrincipal = getPrincipalNumber();
+            let seteo = setNumbers(numeroPrincipal, operacion);
+            resetCounter();
+        }
+    } else {
+        if (obtenerInputSecundario.length == 1) {
+            let numeroPrincipal = getPrincipalNumber();
+            let seteo = setNumbers(numeroPrincipal, operacion);
+            bool2 = true;
+            resetCounter();
+            if (seteo.numeros.length >= 2) {
+                switcher(bool, operacion, seteo.numeros, bool2);
+                bool2 = false;
+            }
+        } else {
+            let inputSecundario = document.getElementById('inputSecundario');
+            inputSecundario.value = null;
+            let numeroPrincipal = getPrincipalNumber();
+            let seteo = setNumbers(numeroPrincipal, operacion);
+            resetCounter();
+        }
+    }
 });
 
 btnDivision.addEventListener('click', function (e) {
@@ -80,20 +132,22 @@ function switcher(data, opr, arrayNumbers, bool2) {
     if (data == true) {
         let operacion = opr;
         let array = arrayNumbers;
-        let segundaSuma = bool2;
+        let segundaOp = bool2;
         switch (operacion) {
             case "suma":
-                let resultado = suma(array);
-                setResultado(resultado);
-                setOperacion(array, operacion, segundaSuma);
+                accion = suma(array);
+                setResultado(accion);
+                setOperacion(array, operacion, segundaOp);
                 break;
             case "resta":
-                resta([10, 5, -50, 100]);
-                console.log(resta([10, 5, -50, 100]));
+                accion = resta(array);
+                setResultado(accion);
+                setOperacion(array, operacion, segundaOp);
                 break;
             case "multiplicacion":
-                multiplicacion([10, 2.5, 2]);
-                console.log(multiplicacion([10, 2.5, 2]));
+                accion = multiplicacion(array);
+                setResultado(accion);
+                setOperacion(array, operacion, segundaOp);
                 break;
             case "division":
                 division(10, 2);

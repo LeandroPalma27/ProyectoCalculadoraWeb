@@ -9,9 +9,9 @@ function suma(array) {
 
 function resta(array) {
     let arrayNumeros = array;
-    let cont = 0;
-    for (let i = 0; i < arrayNumeros.length; i++) {
-        cont = cont - arrayNumeros[i];
+    let cont = arrayNumeros[0];
+    for (let i = 1; i < arrayNumeros.length; i++) {
+        cont -= arrayNumeros[i];
     }
     return cont;
 }
