@@ -13,3 +13,4 @@ Nueva funcionalidad:
 Bug detectado en esta rama:
 
 - AL HACER UNA SUMA CON OPERADOR, EL BOTON DE BORRAR SE DESABILITA
+- Al cambiar de operacion, no se ejecuta una sino que se cambia la operacion.
