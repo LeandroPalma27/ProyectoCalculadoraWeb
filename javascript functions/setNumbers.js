@@ -1,24 +1,24 @@
-var objetoOperacion = new Object();
-
 function setNumbers(a, b) {
     let numeroPrincipal = a;
     let operacion = b;
+    let objetoOperacion = new Object();
     if (operacion == "suma") {
         let inputSecundario = document.getElementById('inputSecundario');
         let contenidoInput = inputSecundario.value;
         if (contenidoInput == null || contenidoInput == "") {
-            inputSecundario.value = numeroPrincipal + " + ";
-            contenidoInput = inputSecundario.value;
+            contenidoInput = numeroPrincipal + " +";
+            inputSecundario.value = contenidoInput;
             let arrayPrimerNumeroStrings = contenidoInput.split(' ');
             let arrayPreviewNumber = [];
             for (let i = 0; i < arrayPrimerNumeroStrings.length; i++) {
                 arrayPreviewNumber.push(parseInt(arrayPrimerNumeroStrings[i], 10));
             }
             let arrayNumeroFiltrado = arrayPreviewNumber.filter( value => !Number.isNaN(value) );
+            objetoOperacion.arrayNumeroOperacion = arrayPrimerNumeroStrings;
             objetoOperacion.primeraAccion = arrayNumeroFiltrado;
             objetoOperacion.numeros = [];
         } else {
-            contenidoInput = contenidoInput + "" + numeroPrincipal;
+            contenidoInput = contenidoInput + " " + numeroPrincipal;
             let arrayPreviewStrings = [];
             let arrayPreviewNumbers = [];
             arrayPreviewStrings = contenidoInput.split(' ');
@@ -27,6 +27,7 @@ function setNumbers(a, b) {
             }
             let arrayNumerosFiltrado = arrayPreviewNumbers.filter( value => !Number.isNaN(value) );
             objetoOperacion.primeraAccion = [];
+            objetoOperacion.arrayNumerosOperacion = arrayPreviewStrings;
             objetoOperacion.numeros = arrayNumerosFiltrado;
         }
         objetoOperacion.operador = operacion;
@@ -40,11 +41,19 @@ function setResultado(data) {
     inputPrincipal.value = data;
 }
 
-function setOperacion(array, opr) {
+function setOperacion(array, opr, sgda) {
+    let segundaSuma = sgda;
     let arrayNumeros = array;
     let operacion = opr;
     let inputSecundario = document.getElementById('inputSecundario');
     if (operacion == "suma") {
-        inputSecundario.value = arrayNumeros[0] + " + " + arrayNumeros[1] + " ="; 
+        if (segundaSuma == true) {
+            let inputPrincipal = document.getElementById('inputPrincipal');
+            inputSecundario.value = inputPrincipal.value + " +";
+            return true;
+        } else {
+            inputSecundario.value = arrayNumeros[0] + " + " + arrayNumeros[1] + " =";
+            return false;
+        }
     }
 }
