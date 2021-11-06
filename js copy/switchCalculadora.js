@@ -14,31 +14,31 @@ btnResultado = document.getElementById('btnResultado');
 btnSuma.addEventListener('click', function (e) {
     operacion = "suma";
     bool = true;
-    if (getPrincipalNumber() == null) {
-        alert('XD');
+    let obtenerInputSecundario = getSecondaryNumber();
+    if (obtenerInputSecundario == null) {
+        if (getPrincipalNumber() == null) {
+            alert('No hay nada en el input principal');
+        } else {
+            let numeroPrincipal = getPrincipalNumber();
+            let seteo = setNumbers(numeroPrincipal, operacion);
+            resetCounter();
+        }
     } else {
-        let numeroPrincipal = getPrincipalNumber();
-        let seteo = setNumbers(numeroPrincipal, operacion);
-        resetCounter();
-        if (seteo.numeros.length >= 2) {
-            let segundoSeteo = setNumbers(numeroPrincipal, operacion);
+        if (obtenerInputSecundario.length == 1) {
+            let numeroPrincipal = getPrincipalNumber();
+            let seteo = setNumbers(numeroPrincipal, operacion);
             bool2 = true;
-            let seteoOperacion = setOperacion(segundoSeteo.numeros, operacion, bool2);
-            if (seteoOperacion == true) {
-                let numeroPrincipal = getPrincipalNumber();
-                let tercerSeteo = setNumbers(numeroPrincipal, operacion);
-                let xd = setOperacion(tercerSeteo.numeros, operacion, bool2);
-                if (xd == true) {
-                    setOperacion(tercerSeteo.numeros, operacion, bool2);
-                    if (bool == false) {
-                        switcher(bool, operacion, segundoSeteo.numeros, bool2);
-                    }
-                } else if (xd == true) {
-                    setOperacion(tercerSeteo.numeros, operacion, bool2);
-                    console.log('xd');
-                }
+            resetCounter();
+            if (seteo.numeros.length >= 2) {
+                switcher(bool, operacion, seteo.numeros, bool2);
                 bool2 = false;
             }
+        } else {
+            let inputSecundario = document.getElementById('inputSecundario');
+            inputSecundario.value = null;
+            let numeroPrincipal = getPrincipalNumber();
+            let seteo = setNumbers(numeroPrincipal, operacion);
+            resetCounter();
         }
     }
 });

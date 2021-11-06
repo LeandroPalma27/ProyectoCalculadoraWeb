@@ -26,6 +26,7 @@ function setNumbers(a, b) {
                 arrayPreviewNumbers.push(parseInt(arrayPreviewStrings[i], 10));
             }
             let arrayNumerosFiltrado = arrayPreviewNumbers.filter( value => !Number.isNaN(value) );
+            console.log(arrayNumerosFiltrado);
             objetoOperacion.primeraAccion = [];
             objetoOperacion.arrayNumerosOperacion = arrayPreviewStrings;
             objetoOperacion.numeros = arrayNumerosFiltrado;
